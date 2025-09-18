@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="h-screen flex flex-col">
+    <header>
+      <h1 class="text-center text-3xl font-bold">Welcome to My Todo App</h1>
+    </header>
+    <main class=" p-4 bg-white max-w-2xl mx-auto w-full rounded shadow mt-4 mb-4">
+      <h2 class="text-center text-2xl font-bold mb-4">My Todo List</h2>
+      <form class="flex justify-between" id="todo-form">
+        <input
+          type="text"
+          class="input-text border rounded px-2 py-1 mb-2"
+          id="task"
+          placeholder="Add a new task..."
+        />
+        <input
+          type="date"
+          class="input-text border rounded px-2 py-1 mb-2 w-48"
+          id="date"
+          placeholder="Add a new task"
+        />
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fa-solid fa-plus"></i> Add
+        </button>
+      </form>
+
+      <!-- Data of task -->
+      <section class="mt-4 flex justify-between">
+        <button
+          id="dropdownDefaultButton"
+          data-dropdown-toggle="dropdown"
+          type="button"
+           class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fa-solid fa-filter"></i> Filter
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div
+          id="dropdown"
+          class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700"
+        >
+          <ul
+            class="py-2 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownDefaultButton"
+          >
+            <li>
+              <a
+                href="#" id="filter-all"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >All</a
+              >
+            </li>
+            <li>
+              <a
+                href="#" id="filter-pending"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >Pending</a
+              >
+            </li>
+            <li>
+              <a
+                href="#" id="filter-completed"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >Completed</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <button
+          type="button" id="delete-all"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fa-solid fa-trash-can"></i> Delete All
+        </button>
+      </section>
+      <section class="mt-4">
+        <table
+          class="min-w-full border-collapse border border-gray-400"
+          id="todo-table"
+        >
+          <thead class="bg-gray-200 border-b border-gray-400 text-center">
+            <tr>
+              <th>Task</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="todo-table-body">
+            <!-- Todo items will be dynamically inserted here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500">
+      <p>Copyright &copy; 2025</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
