@@ -15,9 +15,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="h-screen flex flex-col">
+    <!-- Header -->
     <header>
       <h1 class="text-center text-3xl font-bold">Welcome to My Todo App</h1>
     </header>
+
+    <!-- Main Content -->
     <main class=" p-4 bg-white max-w-2xl mx-auto w-full rounded shadow mt-4 mb-4">
       <h2 class="text-center text-2xl font-bold mb-4">My Todo List</h2>
       <form class="flex justify-between" id="todo-form">
@@ -34,7 +37,7 @@
           placeholder="Add a new task"
         />
         <button
-          type="submit"
+          type="button" onclick="addTodo()" id="add-task"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           <i class="fa-solid fa-plus"></i> Add
@@ -71,35 +74,36 @@
           >
             <li>
               <a
-                href="#" id="filter-all"
+                href="#" id="filter-all" onclick="filterAll()"
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >All</a
+                > All</a
               >
             </li>
             <li>
               <a
-                href="#" id="filter-pending"
+                href="#" id="filter-pending" onclick="filterPending()"
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Pending</a
+                > Pending</a
               >
             </li>
             <li>
               <a
-                href="#" id="filter-completed"
+                href="#" id="filter-completed" onclick="filterComplete()"
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Completed</a
+                > Completed</a
               >
             </li>
           </ul>
         </div>
 
         <button
-          type="button" id="delete-all"
+          type="button" id="delete-all" onclick="deleteAllTodos()"
           class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
         >
           <i class="fa-solid fa-trash-can"></i> Delete All
         </button>
       </section>
+
       <section class="mt-4">
         <table
           class="min-w-full border-collapse border border-gray-400"
@@ -114,7 +118,9 @@
             </tr>
           </thead>
           <tbody id="todo-table-body">
-            <!-- Todo items will be dynamically inserted here -->
+            <tr>
+              <td colspan="4" class="text-center py-4 text-gray-500">No task available.</td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -122,7 +128,7 @@
 
     <!-- Footer -->
     <footer class="text-center text-gray-500">
-      <p>Copyright &copy; 2025</p>
+      <p>Copyright &copy; Daffa Fauzul Hakim 2025</p>
     </footer>
 
     <script src="js/script.js"></script>
